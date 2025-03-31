@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Tree</title>
+</head>
+<body>
+    <div id="category-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetchCategories(); // Load only root categories initially
+
+            function fetchCategories(parentId = null, parentElement = null) {
+                let url = "/categories/" + (parentId ? "?parent=" + parentId : "");
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(categories => {
+                        if (!categories.length) return; // Avoid unnecessary rendering
+
+                        const ul = document.createElement("ul");
+
+                        categories.forEach(category => {
+                            const li = document.createElement("li");
+                            const checkbox = document.createElement("input");
+                            checkbox.type = "checkbox";
+                            checkbox.dataset.categoryId = category.id;
+
+                            checkbox.addEventListener("change", function () {
+                                if (this.checked) {
+                                    fetchCategories(this.dataset.categoryId, li);
+                                } else {
+                                    li.querySelector("ul")?.remove(); // Remove children if unchecked
+                                }
+                            });
+
+                            li.appendChild(checkbox);
+                            li.appendChild(document.createTextNode(" " + category.name));
+                            ul.appendChild(li);
+                        });
+
+                        (parentElement || document.getElementById("category-container")).appendChild(ul);
+                    })
+                    .catch(error => console.error("Error fetching categories:", error));
+            }
+        });
+    </script>
+</body>
+</html>

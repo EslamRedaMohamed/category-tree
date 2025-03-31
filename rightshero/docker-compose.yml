@@ -1,0 +1,34 @@
+version: '3.9'
+
+services:
+  django:
+    build: .
+    container_name: django_app
+    env_file: .env
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    entrypoint: >
+      sh -c "poetry run python manage.py makemigrations &&
+             poetry run python manage.py migrate &&
+             poetry run python manage.py pypopulate_categories &&
+             poetry run python manage.py runserver 0.0.0.0:8000"
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres_db
+    restart: always
+    environment:
+      - POSTGRES_DB=rightshero
+      - POSTGRES_USER=postgres
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
