@@ -93,11 +93,11 @@ This command will:
 ## Build Success
 If the build is successful, you should see the following output:
 
-![Build Success](https://drive.google.com/file/d/1iJt3vXddx0NScMvKB2iYfM-uGpfNgEqz/view?usp=drive_link)
+![Build Success](./media/buildsuccess.png)
 
 **After a few seconds, once the build is successful, you can access the project via: [http://localhost:8000](http://localhost:8000)**
 
-[![Setup Demo](https://via.placeholder.com/800x450.png?text=Click+to+Watch+Video)](https://drive.google.com/file/d/1etW8y6XGvrre3vkkZ7yzzAdZX-nWYxcO/view?usp=drive_link)
+[![Setup Demo](https://via.placeholder.com/800x450.png?text=Click+to+Watch+Video)](./media/CategoryTree.mb4)
 
 
 
@@ -113,7 +113,7 @@ aws cloudformation create-stack --stack-name MyEC2Stack --template-body file://c
 
 **Access the deployed version here: [ http://54.166.94.121:8000/]( http://54.166.94.121:8000/)**
 
-![deployed version](https://drive.google.com/file/d/1L7XY4fhAERH-Y1IdgROL7tXjdkUtlJKM/view?usp=drive_link)
+![deployed version](./media/deployedVersion.png)
 
 
 
