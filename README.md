@@ -80,7 +80,7 @@ git clone https://github.com/EslamRedaMohamed/category-tree
 cd rightshero
 ```
 
-### Start the Application with Docker
+## Start the Application with Docker
 Run the following command to build and start the containers:
 ```bash
 docker-compose up --build -d
@@ -90,14 +90,14 @@ This command will:
 - Apply migrations and populate initial categories.
 - Start the Django development server.
 
-## Build Success
+### Build Success
 If the build is successful, you should see the following output:
 
 ![Build Success](./media/buildsuccess.png)
 
-**After a few seconds, once the build is successful, you can access the project via: [http://localhost:8000](http://localhost:8000)**
+*After a few seconds, once the build is successful, you can access the project via: [http://localhost:8000](http://localhost:8000)*
 
-[![Setup Demo](https://via.placeholder.com/800x450.png?text=Click+to+Watch+Video)](./media/CategoryTree.mb4)
+![local version](./media/localVersion.png)
 
 
 
@@ -111,7 +111,7 @@ aws cloudformation create-stack --stack-name MyEC2Stack --template-body file://c
 ```
 
 
-**Access the deployed version here: [ http://54.166.94.121:8000/]( http://54.166.94.121:8000/)**
+*Access the deployed version here: [ http://54.166.94.121:8000/]( http://54.166.94.121:8000/)*
 
 ![deployed version](./media/deployedVersion.png)
 
