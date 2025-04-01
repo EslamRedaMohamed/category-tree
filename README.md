@@ -108,6 +108,7 @@ To deploy the project on an AWS EC2 instance using CloudFormation, run the follo
 
 ```bash
 aws cloudformation create-stack --stack-name MyEC2Stack --template-body file://cloudformation-template.yaml --capabilities CAPABILITY_NAMED_IAM
+```
 
 
 **Access the deployed version here: [ http://54.166.94.121:8000/]( http://54.166.94.121:8000/)**
